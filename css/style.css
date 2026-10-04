@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 30px;
+
+    background: #e8edf5;
+}
+
+/* Main Toggle */
+
+.toggle {
+    position: relative;
+
+    width: 370px;
+    height: 150px;
+
+    overflow: hidden;
+
+    border-radius: 100px;
+
+    background: #65a9dc;
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 0.3),
+        0 10px 25px rgba(0, 0, 0, 0.2);
+
+    cursor: pointer;
+
+    transition: 0.8s ease;
+}
+
+
+/* ======================
+   SUN
+====================== */
+
+.sun {
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    left: 25px;
+    top: 25px;
+
+    border-radius: 50%;
+
+    background: #ffd21f;
+
+    box-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.8s ease,
+        opacity 0.5s ease;
+}
+
+
+/* ======================
+   MOON
+====================== */
+
+.moon {
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    right: 25px;
+    top: 25px;
+
+    border-radius: 50%;
+
+    background: #dce3ed;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.4);
+
+    transform: translateX(140px);
+
+    transition: transform 0.8s ease;
+}
+
+
+/* Moon Craters */
+
+.moon span {
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: #aeb9c9;
+}
+
+.moon span:nth-child(1) {
+    width: 20px;
+    height: 20px;
+
+    top: 20px;
+    left: 25px;
+}
+
+.moon span:nth-child(2) {
+    width: 30px;
+    height: 30px;
+
+    top: 45px;
+    left: 10px;
+}
+
+.moon span:nth-child(3) {
+    width: 22px;
+    height: 22px;
+
+    bottom: 15px;
+    right: 15px;
+}
+
+
+/* ======================
+   CLOUDS
+====================== */
+
+.cloud {
+    position: absolute;
+
+    background: white;
+
+    width: 130px;
+    height: 35px;
+
+    border-radius: 50px;
+
+    bottom: 15px;
+
+    transition:
+        transform 0.8s ease,
+        opacity 0.5s ease;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+
+    position: absolute;
+
+    background: white;
+
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 55px;
+    height: 55px;
+
+    left: 20px;
+    bottom: 10px;
+}
+
+.cloud::after {
+    width: 65px;
+    height: 65px;
+
+    right: 15px;
+    bottom: 5px;
+}
+
+.cloud1 {
+    left: 70px;
+}
+
+.cloud2 {
+    right: 50px;
+    transform: scale(0.7);
+}
+
+
+/* ======================
+   STARS
+====================== */
+
+.stars {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    transition: opacity 0.6s ease;
+}
+
+.stars i {
+    position: absolute;
+
+    color: white;
+
+    font-size: 20px;
+}
+
+.stars i:nth-child(1) {
+    top: 25px;
+    left: 50px;
+}
+
+.stars i:nth-child(2) {
+    top: 55px;
+    left: 140px;
+}
+
+.stars i:nth-child(3) {
+    top: 30px;
+    right: 140px;
+}
+
+.stars i:nth-child(4) {
+    bottom: 25px;
+    right: 80px;
+}
+
+
+/* ======================
+   NIGHT MODE
+====================== */
+
+.toggle.night {
+    background: #10192c;
+}
+
+
+/* Sun disappears */
+
+.toggle.night .sun {
+    transform: translateX(-140px);
+
+    opacity: 0;
+}
+
+
+/* Moon comes in */
+
+.toggle.night .moon {
+    transform: translateX(0);
+}
+
+
+/* Clouds disappear */
+
+.toggle.night .cloud {
+    transform: translateY(100px);
+
+    opacity: 0;
+}
+
+
+/* Stars appear */
+
+.toggle.night .stars {
+    opacity: 1;
+}
+
+
+/* Button */
+
+button {
+    padding: 12px 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #222;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
